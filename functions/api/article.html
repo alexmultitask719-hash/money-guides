@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Earn Online Hub</title>
+<style>
+body{font-family:Georgia,serif;font-size:19px;line-height:1.7;max-width:680px;margin:0 auto;padding:20px;background:#F4F7F2;color:#1B2B25}
+a{color:#0E3B2E;font-weight:bold}
+h1{font-family:Arial,sans-serif;color:#0E3B2E;line-height:1.2}
+.tag{font-family:Arial,sans-serif;color:#58675F;font-size:15px}
+</style>
+</head>
+<body>
+<p><a href="/">&larr; Back to Earn Online Hub</a></p>
+<div class="tag" id="cat"></div>
+<h1 id="title">Loading...</h1>
+<div id="body"></div>
+<script>
+var slug = new URLSearchParams(location.search).get('slug');
+fetch('/api/article?slug=' + encodeURIComponent(slug))
+  .then(function (r) { if (!r.ok) throw 0; return r.json(); })
+  .then(function (a) {
+    document.title = a.title + ' | Earn Online Hub';
+    document.getElementById('cat').textContent = a.category;
+    document.getElementById('title').textContent = a.title;
+    var box = document.getElementById('body');
+    a.body.split(/\n\s*\n/).forEach(function (t) {
+      var p = document.createElement('p');
+      p.textContent = t;
+      box.appendChild(p);
+    });
+  })
+  .catch(function () {
+    document.getElementById('title').textContent = 'Article not found';
+  });
+</script>
+</body>
+</html>
