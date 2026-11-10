@@ -101,4 +101,55 @@ footer p{max-width:1040px;margin:auto}
 
 <main>
 <section class="wrap" id="guides">
-  <h2>Guides to start with</h2>￼Enter
+  <h2>Guides to start with</h2>
+  <p class="sub">New guides are added regularly. Each one covers how the method works, what you need, and what can go wrong.</p>
+
+  <div class="grid">
+    <div class="card freelance"><div class="tag">Freelancing</div><h3>Make money on Fiverr</h3><p>Set up a gig, win your first order, and price your work.</p><span class="badge">Guide coming soon</span></div>
+    <div class="card freelance"><div class="tag">Freelancing</div><h3>Make money on Upwork</h3><p>Build a profile, write proposals, and land clients.</p><span class="badge">Guide coming soon</span></div>
+    <div class="card freelance"><div class="tag">Freelancing</div><h3>Make money with website design</h3><p>Turn design skills into paid website projects.</p><span class="badge">Guide coming soon</span></div>
+    <div class="card freelance"><div class="tag">Freelancing</div><h3>Freelance writing</h3><p>Get paid to write articles, emails, and product copy.</p><span class="badge">Guide coming soon</span></div>
+    <div class="card freelance"><div class="tag">Freelancing</div><h3>Virtual assistant work</h3><p>Offer admin help to busy business owners and teams.</p><span class="badge">Guide coming soon</span></div>
+    <div class="card property"><div class="tag">Property</div><h3>Wholesale real estate</h3><p>How deals are found, put under contract, and passed to buyers.</p><span class="badge">Guide coming soon</span></div>
+    <div class="card online"><div class="tag">Online business</div><h3>Print on demand</h3><p>Sell custom products without holding any stock.</p><span class="badge">Guide coming soon</span></div>
+    <div class="card online"><div class="tag">Online business</div><h3>Affiliate marketing</h3><p>Earn commissions by recommending products honestly.</p><span class="badge">Guide coming soon</span></div>
+    <div class="card online"><div class="tag">Online business</div><h3>Online tutoring</h3><p>Teach what you know to students around the world.</p><span class="badge">Guide coming soon</span></div>
+  </div>
+</section>
+
+<section class="promise">
+  <div class="wrap">
+    <h2>How we write our guides</h2>
+    <ul>
+      <li>No hype. Every guide says what a method costs, how long it takes, and what can go wrong.</li>
+      <li>Written for beginners, in plain language, with clear steps you can follow today.</li>
+      <li>Honest about income. Nobody earns the same, and results depend on your skills and effort.</li>
+    </ul>
+  </div>
+</section>
+</main>
+
+<footer>
+  <p>© 2026 Earn Online Hub. Earnings are never guaranteed. Results depend on your skills, effort, and market.</p>
+</footer>
+
+<script>
+// Duplicate the ticker so it loops smoothly
+var track = document.getElementById('track');
+track.innerHTML += track.innerHTML;
+
+// Fade cards in as they scroll into view
+var cards = document.querySelectorAll('.card');
+if ('IntersectionObserver' in window) {
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.15 });
+  cards.forEach(function (c) { io.observe(c); });
+} else {
+  cards.forEach(function (c) { c.classList.add('in'); });
+}
+</script>
+</body>
+</html>
