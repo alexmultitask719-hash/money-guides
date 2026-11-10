@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Admin | Earn Online Hub</title>
+<meta name="robots" content="noindex">
+<style>
+body{font-family:Arial,sans-serif;max-width:640px;margin:0 auto;padding:20px;background:#F4F7F2;color:#1B2B25}
+h1{color:#0E3B2E}
+label{display:block;margin-top:14px;font-weight:bold}
+input,textarea,select{width:100%;padding:10px;margin-top:6px;font-size:16px;border:1px solid #9AAFA4;border-radius:6px;box-sizing:border-box}
+textarea{min-height:260px}
+button{margin-top:18px;background:#F5B82E;border:0;padding:14px 26px;font-size:17px;font-weight:bold;border-radius:999px}
+#msg{margin-top:16px;font-weight:bold}
+</style>
+</head>
+<body>
+<h1>Publish an article</h1>
+<label>Admin key</label>
+<input type="password" id="key" placeholder="Your secret admin key">
+<label>Title</label>
+<input id="title" placeholder="How to make money on Fiverr">
+<label>Slug (short web name, lowercase, dashes)</label>
+<input id="slug" placeholder="make-money-on-fiverr">
+<label>Category</label>
+<select id="category">
+<option>Freelancing</option>
+<option>Property</option>
+<option>Online business</option>
+</select>
+<label>Short summary</label>
+<input id="summary" placeholder="One sentence about the guide">
+<label>Article text (blank line between paragraphs)</label>
+<textarea id="body"></textarea>
+<button id="go">Publish</button>
+<p id="msg"></p>
+<script>
+document.getElementById('go').onclick = async function () {
+  var msg = document.getElementById('msg');
+  msg.textContent = 'Publishing...';
+  var res = await fetch('/api/articles', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'x-admin-key': document.getElementById('key').value },
+    body: JSON.stringify({
+      title: document.getElementById('title').value,
+      slug: document.getElementById('slug').value,
+      category: document.getElementById('category').value,
+      summary: document.getElementById('summary').value,
+      body: document.getElementById('body').value
+    })
+  });
+  msg.textContent = res.ok ? 'Published! It is now live.' : 'Failed: ' + (await res.text());
+};
+</script>
+</body>
+</html>
