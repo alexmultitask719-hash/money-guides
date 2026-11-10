@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Earn Online Hub | Step-by-step guides to making money online</title>
 <meta name="description" content="Plain, step-by-step guides to making money online: Fiverr, Upwork, website design, wholesale real estate and more.">
-<script>document.documentElement.classList.add('js');</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Newsreader:wght@400;500&display=swap" rel="stylesheet">
@@ -44,7 +43,7 @@ h1{font-weight:800;font-size:clamp(2.1rem,7vw,3.8rem);letter-spacing:-.01em}
 h2{font-size:clamp(1.6rem,4.5vw,2.4rem);font-weight:800}
 .sub{color:var(--muted);margin-top:8px;max-width:36em}
 .grid{display:grid;gap:16px;margin-top:28px;grid-template-columns:repeat(auto-fill,minmax(270px,1fr))}
-.card{background:var(--card);border-radius:10px;padding:20px;border-left:6px solid var(--leaf);box-shadow:0 1px 0 rgba(14,59,46,.08);transition:transform .25s,box-shadow .25s,opacity .6s}
+.card{display:block;color:inherit;text-decoration:none;background:var(--card);border-radius:10px;padding:20px;border-left:6px solid var(--leaf);box-shadow:0 1px 0 rgba(14,59,46,.08);transition:transform .25s,box-shadow .25s}
 .card:hover{transform:translateY(-4px);box-shadow:0 10px 24px rgba(14,59,46,.12)}
 .card.property{border-color:var(--coin-dk)}
 .card.online{border-color:var(--blue)}
@@ -52,8 +51,7 @@ h2{font-size:clamp(1.6rem,4.5vw,2.4rem);font-weight:800}
 .card h3{font-size:1.3rem;margin:4px 0 6px}
 .card p{color:var(--muted);font-size:1.02rem}
 .badge{display:inline-block;margin-top:12px;font-size:.9rem;background:#EAF1EC;color:var(--ink);padding:3px 12px;border-radius:999px}
-.js .card{opacity:0;transform:translateY(16px)}
-.js .card.in{opacity:1;transform:none}
+.badge.live{background:var(--coin);color:#1B1300}
 
 .promise{background:#E5EEE8}
 .promise ul{list-style:none;padding:0;margin-top:20px;display:grid;gap:12px;max-width:40em}
@@ -64,7 +62,7 @@ footer{background:var(--ink);color:#CFE3D9;padding:32px 20px;font-size:.95rem}
 footer p{max-width:1040px;margin:auto}
 
 @media (min-width:760px){.hero-in{grid-template-columns:1.5fr 1fr}.hero{padding:64px 20px 80px}}
-@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.js .card{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
@@ -101,19 +99,24 @@ footer p{max-width:1040px;margin:auto}
 
 <main>
 <section class="wrap" id="guides">
-  <h2>Guides to start with</h2>
-  <p class="sub">New guides are added regularly. Each one covers how the method works, what you need, and what can go wrong.</p>
+  <h2>Latest guides</h2>
+  <p class="sub">Tap a guide to read it. New guides are added regularly.</p>
+  <div class="grid" id="live"></div>
+</section>
 
-  <div class="grid">
-    <div class="card freelance"><div class="tag">Freelancing</div><h3>Make money on Fiverr</h3><p>Set up a gig, win your first order, and price your work.</p><span class="badge">Guide coming soon</span></div>
-    <div class="card freelance"><div class="tag">Freelancing</div><h3>Make money on Upwork</h3><p>Build a profile, write proposals, and land clients.</p><span class="badge">Guide coming soon</span></div>
-    <div class="card freelance"><div class="tag">Freelancing</div><h3>Make money with website design</h3><p>Turn design skills into paid website projects.</p><span class="badge">Guide coming soon</span></div>
-    <div class="card freelance"><div class="tag">Freelancing</div><h3>Freelance writing</h3><p>Get paid to write articles, emails, and product copy.</p><span class="badge">Guide coming soon</span></div>
-    <div class="card freelance"><div class="tag">Freelancing</div><h3>Virtual assistant work</h3><p>Offer admin help to busy business owners and teams.</p><span class="badge">Guide coming soon</span></div>
-    <div class="card property"><div class="tag">Property</div><h3>Wholesale real estate</h3><p>How deals are found, put under contract, and passed to buyers.</p><span class="badge">Guide coming soon</span></div>
-    <div class="card online"><div class="tag">Online business</div><h3>Print on demand</h3><p>Sell custom products without holding any stock.</p><span class="badge">Guide coming soon</span></div>
-    <div class="card online"><div class="tag">Online business</div><h3>Affiliate marketing</h3><p>Earn commissions by recommending products honestly.</p><span class="badge">Guide coming soon</span></div>
-    <div class="card online"><div class="tag">Online business</div><h3>Online tutoring</h3><p>Teach what you know to students around the world.</p><span class="badge">Guide coming soon</span></div>
+<section class="wrap" style="padding-top:0">
+  <h2>Coming soon</h2>
+  <p class="sub">These guides are being written. Each one covers how the method works, what you need, and what can go wrong.</p>
+  <div class="grid" id="soon">
+    <div class="card freelance" data-topic="fiverr"><div class="tag">Freelancing</div><h3>Make money on Fiverr</h3><p>Set up a gig, win your first order, and price your work.</p><span class="badge">Guide coming soon</span></div>
+    <div class="card freelance" data-topic="upwork"><div class="tag">Freelancing</div><h3>Make money on Upwork</h3><p>Build a profile, write proposals, and land clients.</p><span class="badge">Guide coming soon</span></div>
+    <div class="card freelance" data-topic="website design"><div class="tag">Freelancing</div><h3>Make money with website design</h3><p>Turn design skills into paid website projects.</p><span class="badge">Guide coming soon</span></div>
+    <div class="card freelance" data-topic="writing"><div class="tag">Freelancing</div><h3>Freelance writing</h3><p>Get paid to write articles, emails, and product copy.</p><span class="badge">Guide coming soon</span></div>
+    <div class="card freelance" data-topic="virtual assistant"><div class="tag">Freelancing</div><h3>Virtual assistant work</h3><p>Offer admin help to busy business owners and teams.</p><span class="badge">Guide coming soon</span></div>
+    <div class="card property" data-topic="wholesale"><div class="tag">Property</div><h3>Wholesale real estate</h3><p>How deals are found, put under contract, and passed to buyers.</p><span class="badge">Guide coming soon</span></div>
+    <div class="card online" data-topic="print on demand"><div class="tag">Online business</div><h3>Print on demand</h3><p>Sell custom products without holding any stock.</p><span class="badge">Guide coming soon</span></div>
+    <div class="card online" data-topic="affiliate"><div class="tag">Online business</div><h3>Affiliate marketing</h3><p>Earn commissions by recommending products honestly.</p><span class="badge">Guide coming soon</span></div>
+    <div class="card online" data-topic="tutoring"><div class="tag">Online business</div><h3>Online tutoring</h3><p>Teach what you know to students around the world.</p><span class="badge">Guide coming soon</span></div>
   </div>
 </section>
 
@@ -130,26 +133,53 @@ footer p{max-width:1040px;margin:auto}
 </main>
 
 <footer>
-  <p>© 2026 Earn Online Hub. Earnings are never guaranteed. Results depend on your skills, effort, and market.</p>
+  <p>&copy; 2026 Earn Online Hub. Earnings are never guaranteed. Results depend on your skills, effort, and market.</p>
 </footer>
 
 <script>
-// Duplicate the ticker so it loops smoothly
+// Loop the ticker smoothly
 var track = document.getElementById('track');
 track.innerHTML += track.innerHTML;
 
-// Fade cards in as they scroll into view
-var cards = document.querySelectorAll('.card');
-if ('IntersectionObserver' in window) {
-  var io = new IntersectionObserver(function (entries) {
-    entries.forEach(function (e) {
-      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+// Load published articles from the database
+fetch('/api/articles')
+  .then(function (r) { return r.json(); })
+  .then(function (list) {
+    var live = document.getElementById('live');
+    if (!list.length) {
+      live.innerHTML = '<p class="sub">The first guides are on their way.</p>';
+      return;
+    }
+    var classes = { 'Property': 'property', 'Online business': 'online' };
+    list.forEach(function (a) {
+      var link = document.createElement('a');
+      link.className = 'card ' + (classes[a.category] || 'freelance');
+      link.href = '/article.html?slug=' + encodeURIComponent(a.slug);
+
+      var tag = document.createElement('div');
+      tag.className = 'tag';
+      tag.textContent = a.category || 'Guide';
+      var h = document.createElement('h3');
+      h.textContent = a.title;
+      var p = document.createElement('p');
+      p.textContent = a.summary || '';
+      var b = document.createElement('span');
+      b.className = 'badge live';
+      b.textContent = 'Read the guide';
+
+      link.appendChild(tag); link.appendChild(h); link.appendChild(p); link.appendChild(b);
+      live.appendChild(link);
+
+      // Hide the matching coming-soon card, if there is one
+      var t = (a.title + ' ' + a.slug).toLowerCase();
+      document.querySelectorAll('#soon .card').forEach(function (c) {
+        if (t.indexOf(c.getAttribute('data-topic')) !== -1) c.remove();
+      });
     });
-  }, { threshold: 0.15 });
-  cards.forEach(function (c) { io.observe(c); });
-} else {
-  cards.forEach(function (c) { c.classList.add('in'); });
-}
+  })
+  .catch(function () {
+    document.getElementById('live').innerHTML = '<p class="sub">Guides could not be loaded. Please refresh.</p>';
+  });
 </script>
 </body>
 </html>
